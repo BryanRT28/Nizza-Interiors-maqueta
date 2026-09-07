@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Nizza Interiors | Estudio de Interiorismo & Muebles a Medida · Lima</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    
+    <!-- Tipografías: Cormorant Infant + Syne + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Syne:wght@500;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "nizza-bg": "#F5F3EF",
+                        "nizza-card": "#FFFFFF",
+                        "nizza-black": "#121213",
+                        "nizza-oak": "#9E7B54",
+                        "nizza-oak-light": "#DFC9B0",
+                        "nizza-line": "#E2DED6",
+                        "nizza-muted": "#6E6C72"
+                    },
+                    fontFamily: {
+                        "display": ["'Cormorant Infant'", "serif"],
+                        "title": ["'Syne'", "sans-serif"],
+                        "body": ["'Inter'", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html, body {
+            background-color: #F5F3EF;
+            color: #121213;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .grid-line-x { border-bottom: 1px solid #E2DED6; }
+        .grid-line-t { border-top: 1px solid #E2DED6; }
+        .grid-line-r { border-right: 1px solid #E2DED6; }
+        .grid-line-l { border-left: 1px solid #E2DED6; }
+
+        .img-editorial {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #EDEAE3;
+            border: 1px dashed #C8B9A6;
+            color: #9E7B54;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            width: 100%;
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+        .img-editorial:hover {
+            background: #E5DFD4;
+            color: #121213;
+        }
+
+        .btn-architectural {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background-color: #121213;
+            color: #F5F3EF;
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        .btn-architectural::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.65s ease;
+        }
+        .btn-architectural:hover::after {
+            left: 100%;
+        }
+        .btn-architectural:hover {
+            background-color: #9E7B54;
+            color: #FFFFFF;
+        }
+
+        /* Hover dinámico para imágenes */
+        .zoom-frame img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .zoom-frame:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="selection:bg-nizza-black selection:text-nizza-bg">
+
+    <!-- ================= 1. NAVEGACIÓN FULL-WIDTH DARK ================= -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-nizza-black border-b border-white/10">
+        <div class="w-full flex items-stretch justify-between h-20 sm:h-24">
+            
+            <!-- Logo Nizza en Grande -->
+            <a href="#inicio" class="flex items-center justify-center h-full w-40 sm:w-52 lg:w-60 border-r border-white/10 overflow-hidden bg-black p-0">
+                <img src="img/logo.jpg" 
+                    alt="Logo Nizza Interiors" 
+                    class="h-full w-full object-contain scale-125 sm:scale-135 transition-transform duration-300" />
+            </a>
+
+            <!-- Navegación Desktop -->
+            <nav class="hidden lg:flex items-center gap-12 px-10 text-[11px] uppercase tracking-[0.25em] text-neutral-400 font-medium">
+                <a href="#filosofia" class="hover:text-nizza-bg transition-colors duration-300">El Estudio</a>
+                <a href="#galeria" class="hover:text-nizza-bg transition-colors duration-300">Portafolio</a>
+                <a href="#metodo" class="hover:text-nizza-bg transition-colors duration-300">Metodología</a>
+                <a href="#visita" class="hover:text-nizza-bg transition-colors duration-300">Asesoría en Casa</a>
+            </nav>
+
+            <!-- Acceso Directo Asesoría & Mobile Toggle -->
+            <div class="flex items-stretch">
+                <a href="https://wa.me/51919549507?text=Hola%20Nizza%20Interiors,%20deseo%20agendar%20una%20asesor%C3%ADa%20personalizada%20a%20domicilio" 
+                   target="_blank" 
+                   class="btn-architectural px-8 sm:px-12 text-[11px] uppercase tracking-[0.25em] font-semibold border-l border-white/10 hover:bg-nizza-oak">
+                    <span>Agendar Asesoría</span>
+                    <i class="fa-solid fa-arrow-right-long text-xs transition-transform group-hover:translate-x-1"></i>
+                </a>
+
+                <button id="mobile-toggle" class="lg:hidden w-16 flex items-center justify-center border-l border-white/10 text-nizza-bg" aria-label="Menú">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-popup" class="hidden lg:hidden bg-nizza-black border-b border-white/10 px-8 py-6 space-y-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+            <a href="#filosofia" class="block py-1 hover:text-nizza-bg">El Estudio</a>
+            <a href="#galeria" class="block py-1 hover:text-nizza-bg">Portafolio Residencial</a>
+            <a href="#metodo" class="block py-1 hover:text-nizza-bg">Metodología</a>
+            <a href="#visita" class="block py-1 text-nizza-oak font-bold">Asesoría en Casa</a>
+            <a href="https://wa.me/51919549507" target="_blank" class="block text-center py-3.5 bg-nizza-oak text-white tracking-wider mt-3">WhatsApp: 940 195 959</a>
+        </div>
+    </header>
+
+    <!-- ================= 2. HERO COMPACTO (100VH EXACTO) ================= -->
+    <section class="relative pt-20 sm:pt-24 grid-line-x w-full h-[calc(100vh)] max-h-[960px] overflow-hidden flex flex-col" id="inicio">
+        <div class="w-full grid grid-cols-1 lg:grid-cols-12 flex-1 h-full min-h-0">
+            
+            <!-- Columna Tipográfica (Centrada Verticalmente y con Aire Editorial) -->
+            <div class="lg:col-span-6 px-8 sm:px-14 lg:px-20 py-12 flex flex-col justify-center gap-8 lg:gap-10 grid-line-r h-full min-h-0" data-aos="fade-right">
+                
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-3">
+                        <span class="w-2.5 h-2.5 rounded-full bg-nizza-oak animate-pulse"></span>
+                        <span class="text-[11px] uppercase tracking-[0.3em] font-title font-bold text-nizza-oak">Estudio de Arquitectura Interior &bull; Lima</span>
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-6xl lg:text-[68px] xl:text-[74px] font-normal leading-[1.08] tracking-tight text-nizza-black">
+                        Diseñamos espacios que <br/>
+                        <span class="italic font-normal text-nizza-oak">se sienten tan bien</span> <br class="hidden sm:inline"/>
+                        como se ven.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-nizza-muted font-light leading-relaxed max-w-xl">
+                        ¿Tienes un espacio vacío y no sabes cómo aprovecharlo? Concebimos muebles a medida, cocinas integrales, bajo escaleras y terrazas que equilibran funcionalidad y serenidad visual.
+                    </p>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="space-y-6 pt-2">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="https://wa.me/51919549507?text=Hola%20Nizza%20Interiors,%20quiero%20cotizar%20un%20proyecto%20a%20medida" 
+                           target="_blank" 
+                           class="btn-architectural px-9 py-4 text-xs font-semibold uppercase tracking-[0.2em] shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Cotizar por WhatsApp</span>
+                        </a>
+                        <a href="#galeria" class="px-8 py-4 border border-nizza-black/25 hover:border-nizza-black text-nizza-black text-xs font-medium uppercase tracking-[0.2em] transition-colors text-center">
+                            Ver Galería de Obras
+                        </a>
+                    </div>
+
+                    <div class="pt-6 grid-line-t flex items-center justify-between text-[11px] text-nizza-muted uppercase tracking-wider">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-nizza-oak"></i>
+                            <span>Jesús María &bull; Todo Lima</span>
+                        </span>
+                        <span>Lun – Dom &bull; 9:00 AM – 6:00 PM</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Columna Fotografía (Ajuste Fijo sin Desborde Vertical) -->
+            <div class="lg:col-span-6 h-full min-h-0 relative overflow-hidden bg-nizza-bg zoom-frame" data-aos="fade-left">
+                <img src="img/hero.jpg" 
+                     alt="Home Office a Medida Nizza Interiors" 
+                     class="w-full h-full object-cover object-center" />
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 3. EL MANIFIESTO EN CASA ================= -->
+    <section class="py-28 sm:py-36 grid-line-x w-full" id="filosofia">
+        <div class="w-full px-6 sm:px-16 lg:px-20">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+                
+                <!-- Foto del Equipo con Muestrario Ampliada -->
+                <div class="lg:col-span-6 zoom-frame order-2 lg:order-1" data-aos="fade-up">
+                    <div class="relative bg-nizza-card p-4 sm:p-5 border border-nizza-line shadow-xl">
+                        <div class="aspect-[16/11] overflow-hidden bg-nizza-bg">
+                            <img src="img/1.jpg" 
+                                 alt="Equipo Nizza en Asesoría" 
+                                 class="w-full h-full object-cover hidden" 
+                                 onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');" />
+                            <div class="img-editorial">
+                                <span>Imagen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Narrativa del Servicio a Domicilio -->
+                <div class="lg:col-span-6 space-y-8 order-1 lg:order-2" data-aos="fade-up" data-aos-delay="150">
+                    <span class="text-[11px] uppercase tracking-[0.3em] font-title font-bold text-nizza-oak block">El Enfoque Nizza</span>
+                    <h2 class="font-display text-4xl sm:text-6xl font-normal text-nizza-black leading-[1.08]">
+                        Llevamos el estudio y las muestras a tu propio hogar.
+                    </h2>
+                    <p class="text-base text-nizza-muted font-light leading-relaxed max-w-xl">
+                        No necesitas adivinar cómo dialogarán los tonos en tu departamento. Visitamos tu espacio con muestrarios táctiles de melaminas, texturas amaderadas, cuarzos y perfiles lumínicos para evaluar la caída de luz natural y tomar medidas milimétricas in-situ.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6 grid-line-t">
+                        <div class="space-y-2">
+                            <span class="font-title text-sm font-bold text-nizza-black block uppercase tracking-wider">01. Creatividad</span>
+                            <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">Propuestas 3D concebidas para optimizar metros cuadrados reales sin saturar.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="font-title text-sm font-bold text-nizza-black block uppercase tracking-wider">02. Fabricación</span>
+                            <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">Acabados al milímetro con amortiguación suave y tableros resistentes a la humedad.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 4. GALERÍA DE ESPACIOS FULL-WIDTH ================= -->
+    <section class="py-32 w-full px-6 sm:px-16 lg:px-20" id="galeria">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6" data-aos="fade-up">
+            <div class="space-y-3">
+                <span class="text-[11px] uppercase tracking-[0.3em] font-title font-bold text-nizza-oak block">Casos Reales</span>
+                <h2 class="font-display text-4xl sm:text-6xl font-normal text-nizza-black">Soluciones Arquitectónicas</h2>
+            </div>
+            <p class="text-sm text-nizza-muted font-light max-w-md leading-relaxed">
+                De departamentos en Jesús María y San Borja hasta casas con terraza en Miraflores y Surco.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            
+            <!-- 1: Cocina & Cava Diagonal -->
+            <article class="bg-nizza-card border border-nizza-line p-5 space-y-5 zoom-frame shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up">
+                <div class="aspect-[4/3] overflow-hidden bg-nizza-bg relative">
+                    <img src="img/2.jpg" alt="Cocina con Cava" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');"/>
+                    <div class="img-editorial">
+                        <span>Imagen</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-nizza-oak font-bold block">Cocinas Integradas</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Cava Diagonal & Barra en U</h3>
+                    <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">
+                        Optimización de cocina con granito negro absoluto, melamina roble texturizada y cava vinatera empotrada en esquina.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 2: Espacio Bajo Escalera -->
+            <article class="bg-nizza-card border border-nizza-line p-5 space-y-5 zoom-frame shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                <div class="aspect-[4/3] overflow-hidden bg-nizza-bg relative">
+                    <img src="img/3.jpg" alt="Mueble Bajo Escalera" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');"/>
+                    <div class="img-editorial">
+                        <span>Imagen</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-nizza-oak font-bold block">Aprovechamiento Espacial</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Módulo Bajo Escalera</h3>
+                    <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">
+                        Aprovechamiento total de huecos ciegos: gavetas de cierre suave, nicho decorativo con luz cálida y clóset vertical.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 3: Home Office Suspendido -->
+            <article class="bg-nizza-card border border-nizza-line p-5 space-y-5 zoom-frame shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                <div class="aspect-[4/3] overflow-hidden bg-nizza-bg relative">
+                    <img src="img/4.jpg" alt="Home Office Flotante" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');"/>
+                    <div class="img-editorial">
+                        <span>Imagen</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-nizza-oak font-bold block">Productividad</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Home Office Flotante</h3>
+                    <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">
+                        Escritorio suspendido de pared a pared con repisa retroiluminada de luz rasante y muebles aéreos sin tiradores.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 4: Media Wall con Palillería & Arco -->
+            <article class="bg-nizza-card border border-nizza-line p-5 space-y-5 zoom-frame shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up">
+                <div class="aspect-[4/3] overflow-hidden bg-nizza-bg relative">
+                    <img src="" alt="Media Wall Palilleria" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');"/>
+                    <div class="img-editorial">
+                        <span>Imagen</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-nizza-oak font-bold block">Salas & Entretenimiento</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Media Wall con Arco & Listones</h3>
+                    <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">
+                        Panel arquitectónico con pintura en arco, medio muro alistonado de madera y mueble bajo flotante con luz indirecta.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 5: Terraza Rooftop & Parrilla -->
+            <article class="bg-nizza-card border border-nizza-line p-5 space-y-5 zoom-frame shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                <div class="aspect-[4/3] overflow-hidden bg-nizza-bg relative">
+                    <img src="" alt="Terraza Rooftop" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');"/>
+                    <div class="img-editorial">
+                        <span>Imagen</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-nizza-oak font-bold block">Exteriores & BBQ</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Terraza Sol & Sombra</h3>
+                    <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">
+                        Barra en cuarzo Calacatta con zócalo alistonado, parrilla en acero inoxidable y techo sol y sombra en vigas de madera.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 6: Dormitorio Juvenil & Gaming -->
+            <article class="bg-nizza-card border border-nizza-line p-5 space-y-5 zoom-frame shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                <div class="aspect-[4/3] overflow-hidden bg-nizza-bg relative">
+                    <img src="" alt="Dormitorio con Iluminacion LED" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');"/>
+                    <div class="img-editorial">
+                        <span>Imagen</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-nizza-oak font-bold block">Dormitorios</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Dormitorio con Luz Lineal</h3>
+                    <p class="text-xs sm:text-sm text-nizza-muted font-light leading-relaxed">
+                        Panelado ranurado oscuro, clóset de puertas corredizas en espejo y vitrina iluminada para coleccionables.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ================= 5. METODOLOGÍA ================= -->
+    <section class="py-28 bg-nizza-card grid-line-t grid-line-x w-full" id="metodo">
+        <div class="w-full px-6 sm:px-16 lg:px-20">
+            
+            <div class="max-w-xl mb-20 space-y-3" data-aos="fade-up">
+                <span class="text-[11px] uppercase tracking-[0.3em] font-title font-bold text-nizza-oak block">Transparencia Operativa</span>
+                <h2 class="font-display text-4xl sm:text-5xl text-nizza-black font-normal">Creamos &bull; Diseñamos &bull; Implementamos</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+                
+                <div class="space-y-4 p-6 border-l-2 border-nizza-oak/40 hover:border-nizza-oak transition-colors" data-aos="fade-up" data-aos-delay="100">
+                    <span class="font-title text-3xl font-bold text-nizza-oak block">01</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Levantamiento in-situ</h3>
+                    <p class="text-sm text-nizza-muted font-light leading-relaxed">
+                        Te visitamos a domicilio. Tomamos medidas exactas del espacio, comprendemos tus hábitos de almacenamiento y elegimos muestras juntos.
+                    </p>
+                </div>
+
+                <div class="space-y-4 p-6 border-l-2 border-nizza-oak/40 hover:border-nizza-oak transition-colors" data-aos="fade-up" data-aos-delay="200">
+                    <span class="font-title text-3xl font-bold text-nizza-oak block">02</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Modelado 3D Real</h3>
+                    <p class="text-sm text-nizza-muted font-light leading-relaxed">
+                        Presentamos la volumetría fotorrealista de tu mueble o ambiente. Hacemos ajustes de color y herrajes antes de pasar a taller.
+                    </p>
+                </div>
+
+                <div class="space-y-4 p-6 border-l-2 border-nizza-oak/40 hover:border-nizza-oak transition-colors" data-aos="fade-up" data-aos-delay="300">
+                    <span class="font-title text-3xl font-bold text-nizza-oak block">03</span>
+                    <h3 class="font-display text-2xl text-nizza-black font-semibold">Montaje Impecable</h3>
+                    <p class="text-sm text-nizza-muted font-light leading-relaxed">
+                        Fabricación milimétrica y armado limpio en tu hogar, supervisado directamente por el equipo de interioristas para asegurar el resultado.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 6. FORMULARIO ASESORÍA ================= -->
+    <section class="py-32 w-full px-6 sm:px-16 lg:px-20" id="visita" data-aos="fade-up">
+        <div class="w-full max-w-5xl mx-auto bg-nizza-card border border-nizza-line p-8 sm:p-16 space-y-10 shadow-xl">
+            
+            <div class="text-center space-y-3">
+                <span class="text-[11px] uppercase tracking-[0.3em] font-title font-bold text-nizza-oak block">Atención en Lima</span>
+                <h2 class="font-display text-4xl sm:text-5xl font-normal text-nizza-black">Inicia tu Proyecto a Medida</h2>
+                <p class="text-sm text-nizza-muted font-light max-w-md mx-auto">
+                    Selecciona el área que deseas intervenir y coordinamos una visita técnica a tu domicilio.
+                </p>
+            </div>
+
+            <form id="nizzaSelectorForm" onsubmit="event.preventDefault(); sendNizzaWhatsApp();" class="space-y-8 text-left">
+                
+                <div class="space-y-3">
+                    <label class="block text-xs uppercase tracking-[0.2em] text-nizza-muted font-bold font-title">1. Área a Renovar</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <button type="button" 
+                                class="space-pill px-4 py-3.5 bg-nizza-black text-nizza-bg font-semibold text-xs uppercase tracking-wider transition-all text-center" 
+                                onclick="selectSpace(this, 'Cocina Integral / Cava')">
+                            Cocina / Cava
+                        </button>
+                        <button type="button" 
+                                class="space-pill px-4 py-3.5 bg-nizza-bg border border-nizza-line text-nizza-muted hover:text-nizza-black font-semibold text-xs uppercase tracking-wider transition-all text-center" 
+                                onclick="selectSpace(this, 'Mueble Bajo Escalera')">
+                            Bajo Escalera
+                        </button>
+                        <button type="button" 
+                                class="space-pill px-4 py-3.5 bg-nizza-bg border border-nizza-line text-nizza-muted hover:text-nizza-black font-semibold text-xs uppercase tracking-wider transition-all text-center" 
+                                onclick="selectSpace(this, 'Media Wall / Centro TV')">
+                            Media Wall / Sala
+                        </button>
+                        <button type="button" 
+                                class="space-pill px-4 py-3.5 bg-nizza-bg border border-nizza-line text-nizza-muted hover:text-nizza-black font-semibold text-xs uppercase tracking-wider transition-all text-center" 
+                                onclick="selectSpace(this, 'Home Office / Estudio')">
+                            Home Office
+                        </button>
+                        <button type="button" 
+                                class="space-pill px-4 py-3.5 bg-nizza-bg border border-nizza-line text-nizza-muted hover:text-nizza-black font-semibold text-xs uppercase tracking-wider transition-all text-center" 
+                                onclick="selectSpace(this, 'Dormitorio / Clóset')">
+                            Dormitorio / Clóset
+                        </button>
+                        <button type="button" 
+                                class="space-pill px-4 py-3.5 bg-nizza-bg border border-nizza-line text-nizza-muted hover:text-nizza-black font-semibold text-xs uppercase tracking-wider transition-all text-center" 
+                                onclick="selectSpace(this, 'Terraza Rooftop / BBQ')">
+                            Terraza / BBQ
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.2em] text-nizza-muted mb-2 font-bold font-title" for="clientDistrict">2. Distrito en Lima *</label>
+                        <input type="text" 
+                               id="clientDistrict" 
+                               required 
+                               placeholder="Ej. Jesús María, San Borja, Surco, Miraflores..." 
+                               class="w-full bg-nizza-bg border border-nizza-line text-xs text-nizza-black px-4 py-3.5 focus:border-nizza-oak focus:ring-0 outline-none transition-colors placeholder:text-neutral-400"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.2em] text-nizza-muted mb-2 font-bold font-title" for="clientNotes">3. Cuéntanos sobre tu espacio</label>
+                        <input type="text" 
+                               id="clientNotes" 
+                               placeholder="Ej. Hueco bajo escalera de 2.20m de largo..." 
+                               class="w-full bg-nizza-bg border border-nizza-line text-xs text-nizza-black px-4 py-3.5 focus:border-nizza-oak focus:ring-0 outline-none transition-colors placeholder:text-neutral-400"/>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-6 grid-line-t">
+                    <div class="flex items-center gap-2.5 text-xs text-nizza-muted font-light">
+                        <i class="fa-regular fa-clock text-nizza-oak text-sm"></i>
+                        <span>Atención de Lunes a Domingo (9:00 AM – 6:00 PM)</span>
+                    </div>
+                    <button type="submit" class="btn-architectural w-full sm:w-auto px-10 py-5 text-xs font-semibold uppercase tracking-[0.2em]">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        <span>Solicitar Asesoría en Casa</span>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- ================= 7. FOOTER FULL-WIDTH ================= -->
+    <footer class="py-16 bg-nizza-black text-nizza-bg text-xs w-full">
+        <div class="w-full px-6 sm:px-16 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-8">
+            
+            <!-- Logo Footer Solo (Sin Texto) -->
+            <div class="h-38 sm:h-28 w-auto flex items-center justify-center">
+                <img src="img/logo.jpg" 
+                     alt="Logo Nizza Footer" 
+                     class="h-full w-auto object-contain hidden" 
+                     onload="this.classList.remove('hidden'); this.nextElementSibling?.classList.add('hidden');" />
+                <div class="w-24 h-9 border border-dashed border-nizza-oak/40 flex items-center justify-center text-nizza-oak text-[10px] tracking-widest uppercase">
+                    Tu Logo
+                </div>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="flex items-center gap-8 text-base text-nizza-bg">
+                <a href="https://instagram.com/nizza.interiors" target="_blank" class="hover:text-nizza-oak transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com/@nizza.interiors7" target="_blank" class="hover:text-nizza-oak transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61573870861806&locale=es_LA" target="_blank" class="hover:text-nizza-oak transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/519919549507" target="_blank" class="hover:text-nizza-oak transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <span class="text-[11px] tracking-widest uppercase text-neutral-400 font-mono">
+                &copy; 2026 Nizza Interiors. Lima, Perú.
+            </span>
+
+        </div>
+    </footer>
+
+    <!-- Scripts de Interacción y Animación -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+                easing: 'ease-out-cubic',
+                disable: 'mobile'
+            });
+
+            const toggle = document.getElementById('mobile-toggle');
+            const popup = document.getElementById('mobile-popup');
+            if (toggle && popup) {
+                toggle.addEventListener('click', () => popup.classList.toggle('hidden'));
+                popup.querySelectorAll('a').forEach(a => a.addEventListener('click', () => popup.classList.add('hidden')));
+            }
+        });
+
+        let chosenArea = "Cocina Integral / Cava";
+
+        function selectSpace(btn, spaceName) {
+            chosenArea = spaceName;
+            const pills = document.querySelectorAll('.space-pill');
+            pills.forEach(p => {
+                p.classList.remove('bg-nizza-black', 'text-nizza-bg');
+                p.classList.add('bg-nizza-bg', 'border', 'border-nizza-line', 'text-nizza-muted');
+            });
+            btn.classList.remove('bg-nizza-bg', 'border', 'border-nizza-line', 'text-nizza-muted');
+            btn.classList.add('bg-nizza-black', 'text-nizza-bg');
+        }
+
+        function sendNizzaWhatsApp() {
+            const district = document.getElementById('clientDistrict').value.trim() || 'Lima';
+            const notes = document.getElementById('clientNotes').value.trim() || 'Proyecto a medida';
+
+            const message = `¡Hola Nizza Interiors! Vengo de su página web y deseo consultar sobre una asesoría a domicilio:%0A%0A` +
+                            ` *Área a Renovar:* ${encodeURIComponent(chosenArea)}%0A` +
+                            ` *Distrito:* ${encodeURIComponent(district)}%0A` +
+                            ` *Detalles:* ${encodeURIComponent(notes)}%0A%0A` +
+                            `¿Podrían indicarme disponibilidad para una visita con su muestrario? Gracias.`;
+
+            window.open(`https://wa.me/51919549507?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
