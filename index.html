@@ -112,15 +112,15 @@
 </head>
 <body class="selection:bg-nizza-black selection:text-nizza-bg">
 
-        <!-- ================= 1. NAVEGACIÓN FULL-WIDTH DARK ================= -->
+            <!-- ================= 1. NAVEGACIÓN FULL-WIDTH DARK ================= -->
     <header class="fixed top-0 inset-x-0 z-50 bg-nizza-black border-b border-white/10">
-        <div class="w-full flex items-stretch justify-between h-16 sm:h-20 lg:h-24">
+        <div class="w-full flex items-stretch justify-between h-20 sm:h-24">
             
-            <!-- Logo Nizza -->
-            <a href="#inicio" class="flex items-center justify-center h-full px-4 sm:px-8 border-r border-white/10 bg-black">
+            <!-- Logo Nizza en Grande -->
+            <a href="#inicio" class="flex items-center justify-center h-full w-40 sm:w-52 lg:w-60 border-r border-white/10 overflow-hidden bg-black p-0">
                 <img src="img/logo.jpg" 
-                     alt="Logo Nizza Interiors" 
-                     class="h-8 sm:h-10 lg:h-12 w-auto object-contain" />
+                    alt="Logo Nizza Interiors" 
+                    class="h-full w-full object-contain scale-125 sm:scale-135 transition-transform duration-300" />
             </a>
 
             <!-- Navegación Desktop -->
@@ -131,22 +131,16 @@
                 <a href="#visita" class="hover:text-nizza-bg transition-colors duration-300">Asesoría en Casa</a>
             </nav>
 
-            <!-- Acceso Directo & Mobile Toggle -->
+            <!-- Acceso Directo Asesoría & Mobile Toggle -->
             <div class="flex items-stretch">
-                <!-- En móvil se oculta el botón de texto largo para que respire el header -->
                 <a href="https://wa.me/51919549507?text=Hola%20Nizza%20Interiors,%20deseo%20agendar%20una%20asesor%C3%ADa%20personalizada%20a%20domicilio" 
                    target="_blank" 
-                   class="hidden sm:inline-flex btn-architectural px-6 lg:px-12 text-[11px] uppercase tracking-[0.25em] font-semibold border-l border-white/10 hover:bg-nizza-oak">
+                   class="btn-architectural px-8 sm:px-12 text-[11px] uppercase tracking-[0.25em] font-semibold border-l border-white/10 hover:bg-nizza-oak">
                     <span>Agendar Asesoría</span>
                     <i class="fa-solid fa-arrow-right-long text-xs transition-transform group-hover:translate-x-1"></i>
                 </a>
 
-                <!-- Icono de WhatsApp directo solo en móvil -->
-                <a href="https://wa.me/51919549507" target="_blank" class="sm:hidden w-14 flex items-center justify-center border-l border-white/10 text-emerald-400" aria-label="WhatsApp">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
-                </a>
-
-                <button id="mobile-toggle" class="lg:hidden w-14 sm:w-16 flex items-center justify-center border-l border-white/10 text-nizza-bg" aria-label="Menú">
+                <button id="mobile-toggle" class="lg:hidden w-16 flex items-center justify-center border-l border-white/10 text-nizza-bg" aria-label="Menú">
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
@@ -154,14 +148,15 @@
         </div>
 
         <!-- Menú Móvil Desplegable -->
-        <div id="mobile-popup" class="hidden lg:hidden bg-nizza-black border-b border-white/10 px-6 py-6 space-y-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+        <div id="mobile-popup" class="hidden lg:hidden bg-nizza-black border-b border-white/10 px-8 py-6 space-y-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
             <a href="#filosofia" class="block py-1 hover:text-nizza-bg">El Estudio</a>
             <a href="#galeria" class="block py-1 hover:text-nizza-bg">Portafolio Residencial</a>
             <a href="#metodo" class="block py-1 hover:text-nizza-bg">Metodología</a>
             <a href="#visita" class="block py-1 text-nizza-oak font-bold">Asesoría en Casa</a>
-            <a href="https://wa.me/51919549507" target="_blank" class="block text-center py-3.5 bg-nizza-oak text-white tracking-wider mt-3">WhatsApp: 919 549 507</a>
+            <a href="https://wa.me/51919549507" target="_blank" class="block text-center py-3.5 bg-nizza-oak text-white tracking-wider mt-3">WhatsApp: 940 195 959</a>
         </div>
     </header>
+
 
     <!-- ================= 2. HERO OPTIMIZADO (MOBILE + DESKTOP) ================= -->
     <section class="relative pt-16 sm:pt-20 lg:pt-24 grid-line-x w-full lg:h-[calc(100vh)] lg:max-h-[960px] overflow-hidden flex flex-col" id="inicio">
@@ -223,12 +218,12 @@
     </section>
 
 
-    <!-- ================= 2. HERO COMPACTO (100VH EXACTO) ================= -->
-    <section class="relative pt-20 sm:pt-24 grid-line-x w-full h-[calc(100vh)] max-h-[960px] overflow-hidden flex flex-col" id="inicio">
+        <!-- ================= 2. HERO COMPACTO (100VH EXACTO) ================= -->
+    <section class="relative pt-28 sm:pt-24 grid-line-x w-full h-[calc(100vh)] max-h-[960px] overflow-hidden flex flex-col" id="inicio">
         <div class="w-full grid grid-cols-1 lg:grid-cols-12 flex-1 h-full min-h-0">
             
-            <!-- Columna Tipográfica (Centrada Verticalmente y con Aire Editorial) -->
-            <div class="lg:col-span-6 px-8 sm:px-14 lg:px-20 py-12 flex flex-col justify-center gap-8 lg:gap-10 grid-line-r h-full min-h-0" data-aos="fade-right">
+            <!-- Columna Tipográfica (Con espacio corregido en móvil para no chocar con el navbar) -->
+            <div class="lg:col-span-6 px-8 sm:px-14 lg:px-20 pt-4 sm:pt-0 pb-12 flex flex-col justify-center gap-8 lg:gap-10 grid-line-r h-full min-h-0" data-aos="fade-right">
                 
                 <div class="space-y-6">
                     <div class="inline-flex items-center gap-3">
@@ -272,7 +267,7 @@
 
             </div>
 
-            <!-- Columna Fotografía (Ajuste Fijo sin Desborde Vertical) -->
+            <!-- Columna Fotografía -->
             <div class="lg:col-span-6 h-full min-h-0 relative overflow-hidden bg-nizza-bg zoom-frame" data-aos="fade-left">
                 <img src="img/hero.jpg" 
                      alt="Home Office a Medida Nizza Interiors" 
@@ -281,6 +276,7 @@
 
         </div>
     </section>
+
 
     <!-- ================= 3. EL MANIFIESTO EN CASA ================= -->
     <section class="py-28 sm:py-36 grid-line-x w-full" id="filosofia">
